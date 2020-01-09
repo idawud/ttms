@@ -1,4 +1,4 @@
-package io.turntabl.domainModel;
+package io.turntabl.models;
 
 public class Leave {
     private String id;

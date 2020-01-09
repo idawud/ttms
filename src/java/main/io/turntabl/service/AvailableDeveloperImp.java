@@ -1,21 +1,20 @@
-package io.turntabl.serviceImpl;
+package io.turntabl.service;
 
-import io.turntabl.domainModel.Employee;
-import io.turntabl.domainModel.Leave;
-import io.turntabl.domainModel.Project;
-import io.turntabl.service.DeveloperService;
+import io.turntabl.models.Employee;
+import io.turntabl.models.Leave;
+import io.turntabl.models.Project;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class DeveloperServiceImpl     {
+public class AvailableDeveloperImp implements IAvailableDeveloper{
     public static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM d, yyyy", Locale.ENGLISH);
 
+    @Override
     public List<Employee> getAllAvailableDevelopers(Date projectStartDate, Date projectEndDate) {
         // http request
         List<Employee> employees = getAllEmployees();
@@ -35,8 +34,8 @@ public class DeveloperServiceImpl     {
         // filter out old projects
          availableEmployees.forEach( x -> {
             List<Project> projects = x.getProjects();
-            List<Project> currentProjs = projects.stream().filter(project -> project.getProject_end_date().after(getDateNow())).collect(Collectors.toList());
-            x.setProjects(currentProjs);
+            List<Project> projectBacklog = projects.stream().filter(project -> project.getProject_end_date().after(getDateNow())).collect(Collectors.toList());
+            x.setProjects(projectBacklog);
         });
 
          // employees to consider for this date duration
@@ -73,9 +72,7 @@ public class DeveloperServiceImpl     {
 
 
     private Date getDateNow(){
-        SimpleDateFormat formatter= new SimpleDateFormat("MM d, yyyy");
-        Date date = new Date(System.currentTimeMillis());
-        return date;
+        return (new Date(System.currentTimeMillis()) );
     }
 
     private Leave getLeave(int employee_id) {

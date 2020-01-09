@@ -7,7 +7,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import io.turntabl.Models_old.Dev;
 import io.turntabl.Models_old.Project;
-import io.turntabl.service.DeveloperService;
+import io.turntabl.service.IAvailableDeveloper;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class DeveloperServiceImpl implements DeveloperService {
+public class DeveloperServiceImpl implements IAvailableDeveloper {
 
     public static void main(String[] args) {
 

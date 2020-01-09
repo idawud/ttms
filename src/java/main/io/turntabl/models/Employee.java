@@ -1,4 +1,4 @@
-package io.turntabl.domainModel;
+package io.turntabl.models;
 
 import java.util.Date;
 import java.util.List;
