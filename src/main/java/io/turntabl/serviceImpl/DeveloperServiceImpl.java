@@ -14,7 +14,7 @@ public class DeveloperServiceImpl implements DeveloperService {
         // http request
         List<Employee> employees = getAllEmployees();
 
-        List<Employee> employeesAvailable = new ArrayList<>();
+        List<Employee> employeesPrensent = new ArrayList<>();
 
         for (Employee emp : employees) {
             if (emp.getEmployee_onleave() == true) {
@@ -23,9 +23,12 @@ public class DeveloperServiceImpl implements DeveloperService {
 //                if(emp.getProjects())
             }
             else {
-                employeesAvailable.add(emp);
+                employeesPrensent.add(emp);
             }
         }
+
+        // update dev project history
+
 
         return null;
     }
