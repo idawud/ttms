@@ -13,7 +13,7 @@ public class Employee {
     private String employee_dev_level;
     private String employee_gender;
     private Date employee_hire_date;
-    private Boolean employee_onleave;
+    private boolean employee_onleave;
     private List<String> tech_stack;
     private List<Project> projects;
 
@@ -92,7 +92,7 @@ public class Employee {
         this.employee_hire_date = employee_hire_date;
     }
 
-    public Boolean getEmployee_onleave() {
+    public boolean getEmployee_onleave() {
         return employee_onleave;
     }
 
